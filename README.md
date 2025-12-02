@@ -9,3 +9,4 @@ https://leetcode.cn/discuss/post/3578981/ti-dan-hua-dong-chuang-kou-ding-chang-b
 1456 入-更新-出
 643 入-更新-出
 1343 入-更新-出
+2841 入-更新-出 配合 map 的使用

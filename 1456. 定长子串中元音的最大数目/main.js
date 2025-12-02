@@ -42,3 +42,37 @@ var maxVowels = function (s, k) {
 // 链接：https://leetcode.cn/problems/maximum-number-of-vowels-in-a-substring-of-given-length/solutions/2809359/tao-lu-jiao-ni-jie-jue-ding-chang-hua-ch-fzfo/
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+var maxVowels2 = function (s, k) {
+  // 输入：s = "abciiidef", k = 3
+  let left = 0;
+  let ans = 0;
+  let res = 0;
+
+  for (let right = 0; right < s.length; right++) {
+    if (
+      s[right] === "a" ||
+      s[right] === "e" ||
+      s[right] === "i" ||
+      s[right] === "o" ||
+      s[right] === "u"
+    ) {
+      ans++;
+    }
+
+    if (right - left + 1 == k) {
+      res = Math.max(ans, res);
+
+      if (
+        s[left] === "a" ||
+        s[left] === "e" ||
+        s[left] === "i" ||
+        s[left] === "o" ||
+        s[left] === "u"
+      ) {
+        ans--;
+      }
+      left++;
+    }
+  }
+  return res;
+};

@@ -20,3 +20,20 @@ var findMaxAverage = function (nums, k) {
 // 链接：https://leetcode.cn/problems/maximum-average-subarray-i/solutions/3061219/mo-ban-ding-chang-hua-dong-chuang-kou-py-1jxk/
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+var findMaxAverage2 = function (nums, k) {
+  let left = 0;
+  let ans = 0;
+  let res = -Infinity;
+
+  for (let right = 0; right < nums.length; right++) {
+    ans += nums[right];
+
+    if (right - left + 1 === k) {
+      res = Math.max(ans, res);
+
+      ans -= nums[left];
+      left++;
+    }
+  }
+  return res / k;
+};

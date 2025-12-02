@@ -22,3 +22,23 @@ var numOfSubarrays = function (arr, k, threshold) {
 // 链接：https://leetcode.cn/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/solutions/3061222/mo-ban-ding-chang-hua-dong-chuang-kou-py-85sh/
 // 来源：力扣（LeetCode）
 // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+var numOfSubarrays2 = function (arr, k, threshold) {
+  let left = 0;
+  let ans = 0;
+  let res = 0;
+
+  for (let right = 0; right < arr.length; right++) {
+    const element = arr[right];
+    ans += element; // 入
+
+    if (right - left + 1 === k) {
+      if (ans >= k * threshold) {
+        res++; // 更新
+      }
+      ans -= arr[left]; // 出
+      left++; // 出
+    }
+  }
+  return res;
+};
